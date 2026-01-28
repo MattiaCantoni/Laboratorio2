@@ -39,6 +39,8 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
+            
+            
             <Button
                 x:Name="CounterBtn"
                 WidthRequest="400"
@@ -51,7 +53,9 @@
                 HorizontalOptions="Fill"
                 Padding="55,0"
                 Margin="20"/>
+
             
+
         </VerticalStackLayout>
     </ScrollView>
 
