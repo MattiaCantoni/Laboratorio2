@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Esercizio02Equation.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20,0"
+            Spacing="25"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            
+            <Label 
+                Text="Risolutore Equazioni"
+                FontSize="48"
+                FontAttributes="Bold"
+                TextColor="BlueViolet"
+                HorizontalOptions="Center"/>
+
+            <Label 
+                Text="Data l'equazione: ax^2 + bx + c = 0"
+                FontSize="16"
+                FontAttributes="Bold"
+                TextColor="Gray"
+                HorizontalOptions="Center"/>
+
+            <Grid
+                RowSpacing="15"
+                ColumnSpacing="10">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    
+
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                    
+                    Grid.Column="0" Grid.Row="0"
+                    Text="Coefficiente A: "
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="White"/>
+
+                <Entry
+                    x:Name="EntA"
+                    Grid.Column="1" Grid.Row="0"
+                    HeightRequest="15"
+                    Placeholder="Inserisci A"
+                    VerticalOptions="Start"
+                    Keyboard="Numeric"/>
+
+                <Label 
+                    Grid.Column="0" Grid.Row="1"
+                    Text="Coefficiente B: "
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="White"/>
+
+                <Entry
+                    x:Name="EntB"
+                    Grid.Column="1" Grid.Row="1"
+                    HeightRequest="15"
+                    Placeholder="Inserisci B"
+                    VerticalOptions="Start"
+                    Keyboard="Numeric"/>
+
+                <Label 
+                    Grid.Column="0" Grid.Row="2"
+                    Text="Coefficiente C: "
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="White"/>
+
+                <Entry
+                    x:Name="EntC"
+                    Grid.Column="1" Grid.Row="2"
+                    HeightRequest="15"
+                    Placeholder="Inserisci C"
+                    VerticalOptions="Start"
+                    Keyboard="Numeric"/>
+
+            </Grid>
+
+            <Button
+                x:Name="BtnCalcolaRadici"
+                Text="Calcola Radici"
+                Clicked="BtnCalcola"/>
+
+            <Label
+                x:Name="LblRisultato"
+                Text="Inserisci i valori per iniziare"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                BackgroundColor="White"
+                TextColor="Black"
+                HeightRequest="50"
+                FontAttributes="Bold"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

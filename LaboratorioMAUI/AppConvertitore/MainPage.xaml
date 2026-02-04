@@ -5,7 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="150,0"
+            Padding="50,0"
             Spacing="25"
             VerticalOptions="Center">
 
@@ -14,9 +14,9 @@
                 FontSize="24"
                 FontAttributes="Bold"
                 HorizontalOptions="Center"/>
-                        
+
             <Entry
-                x:Name="entConversione"
+                x:Name="EntFranchi"
                 Placeholder="Inserisci importo in CHF"
                 Keyboard="Numeric"/>
 
@@ -33,7 +33,18 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 Margin="0, 20, 0, 0"/>
-            
+
+
+            <Button
+                x:Name="BtnReset"
+                Text="Pulisci"
+                TextColor="White"
+                BackgroundColor="Blue"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="75"
+                Margin="5"
+                Clicked="btnResetPage"/>
         </VerticalStackLayout>
     </ScrollView>
 
