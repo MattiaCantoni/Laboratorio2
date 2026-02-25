@@ -64,13 +64,13 @@
                     WidthRequest="90"/>
 
             </HorizontalStackLayout>
-            <!--
-            <Button
-                x:Name="ResetButton"
-                Text="Reset"
-                FontAttributes="Bold"
-                FontSize="18"
-                Clicked="ResetButton_Clicked"/>-->
+
+            <Button 
+                x:Name="btnResult" 
+                WidthRequest="70" 
+                HeightRequest="70"
+                Text="Vai a risultati"
+                Clicked="btnResult_Clicked"/>
 
         </VerticalStackLayout>
     </ScrollView>

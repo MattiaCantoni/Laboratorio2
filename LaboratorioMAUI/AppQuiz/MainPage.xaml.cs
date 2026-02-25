@@ -14,6 +14,7 @@ namespace AppQuiz
             InitializeComponent();
             _questions.Add(new TrueFalseQuestion("Il C# è un linguaggio a oggetti?", 10, "csharplogo.png", true));
             _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato", 15, "python.png", false));
+            btnResult.IsVisible = false;
             ShowQuestion();
         }
 
@@ -49,21 +50,24 @@ namespace AppQuiz
             else
             {
                 QuestionTextLabel.Text = $"Punteggio finale: {_score}";
+                btnResult.IsVisible = true;
                 ScoreLabel.IsVisible = false;
                 TrueButton.IsVisible = false;
                 FalseButton.IsVisible = false;
             }
         }
-        /*
-        private void ResetButton_Clicked(object sender, EventArgs e)
+
+        private void btnResult_Clicked(object sender, EventArgs e)
         {
-            _questions = new List<QuestionBase>();
-            _currentIndex = 0;
-            _score = 0;
-            ScoreLabel.IsVisible = true;
-            TrueButton.IsVisible = true;
-            FalseButton.IsVisible = true;
+            OnQuizFinished();
         }
-        */
+
+        private async void OnQuizFinished()
+        {
+            //Richiamiamo il metodo PushAsync e gli passiamo il nuovo oggetto ResultPage
+            //Attendiamo senza bloccare la pagina grazie ad await e async
+            await Navigation.PushAsync(new ResultPage(_score));
+        }
+
     }
 }
