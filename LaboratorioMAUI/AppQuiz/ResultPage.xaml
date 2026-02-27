@@ -55,7 +55,9 @@
             HorizontalTextAlignment="Center"/>
 
         <Button 
+            x:Name="btnGiocaAncora"
             Text="Gioca Ancora"
+            Clicked="btnGiocaAncora_Clicked"
             BackgroundColor="{StaticResource Primary}"
             CornerRadius="20"/>
 

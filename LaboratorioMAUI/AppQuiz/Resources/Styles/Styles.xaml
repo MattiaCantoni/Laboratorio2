@@ -4,6 +4,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+
+    <Style x:Key="btnReplay" TargetType="Button">
+        <Setter Property="Text" Value="Rigioca"/>
+        <Setter Property="WidthRequest" Value="75"/>
+    </Style>
+
+    <Style x:Key="btnConferma" TargetType="Button">
+        <Setter Property="Text" Value="Conferma Risposta"/>
+        <Setter Property="Background" Value="{StaticResource Primary}"/>
+    </Style>
+
+
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
     </Style>

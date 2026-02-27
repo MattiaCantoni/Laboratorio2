@@ -18,4 +18,8 @@ public partial class ResultPage : ContentPage
 		lblScore.Text = _score.ToString();
 	}
 
+    private async void btnGiocaAncora_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
+    }
 }

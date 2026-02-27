@@ -14,6 +14,7 @@ namespace AppQuiz
             InitializeComponent();
             _questions.Add(new TrueFalseQuestion("Il C# è un linguaggio a oggetti?", 10, "csharplogo.png", true));
             _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato", 15, "python.png", false));
+            _questions.Add(new OpenQuestion("Qual è il nome del framework Microsoft per app cross-platform?", 15, "logo.png", "MAUI"));
             btnResult.IsVisible = false;
             ShowQuestion();
         }
@@ -21,17 +22,41 @@ namespace AppQuiz
         //L'evento porta con se il sender che è il bottone
         private void OnAnswer_Clicked(object sender, EventArgs e)
         {
-            Button btn = (Button)sender; //Downcast
-            //Trasforma command parameter in stringa e gli fa il Parse
-            bool userAnswer = bool.Parse(btn.CommandParameter.ToString());
+            if (_currentIndex < _questions.Count)
+            {
+                QuestionBase current = _questions[_currentIndex];
 
-            if (_questions[_currentIndex].CheckAnswer(userAnswer))
+                Button btn = (Button)sender; //Downcast
+
+                if (TrueButton == btn || FalseButton == btn)
+                {
+                    string userAnswer = btn.CommandParameter.ToString();
+
+                    if (_questions[_currentIndex].CheckAnswer(userAnswer))
+                    {
+                        _score += _questions[_currentIndex].Points;
+                    }
+                    else
+                    {
+                        _score += 0;
+                    }
+                }
+                else if (btnConferma == btn)
+                {
+                    string userAnswer = entOpenQuestion.Text;
+
+                    if (_questions[_currentIndex].CheckAnswer(userAnswer))
+                    {
+                        _score += _questions[_currentIndex].Points;
+                    }
+                    else
+                    {
+                        _score += 0;
+                    }
+                }
+            } else
             {
-                _score += _questions[_currentIndex].Points;
-            } 
-            else
-            {
-                _score += 0;
+                OnQuizFinished();
             }
             _currentIndex++;
             ShowQuestion();
@@ -41,8 +66,23 @@ namespace AppQuiz
         {
             if (_currentIndex < _questions.Count)
             {
+                
                 //Creo un oggetto Question che contiene la domanda corrente
                 QuestionBase current = _questions[_currentIndex];
+
+                
+
+                if (current is TrueFalseQuestion)
+                {
+                    htsTrueFalse.IsVisible = true;
+                    entOpenQuestion.IsVisible = false;
+                    btnConferma.IsVisible = false;
+                } else if (current is OpenQuestion){
+                    entOpenQuestion.IsVisible = true;
+                    btnConferma.IsVisible = true;
+                    htsTrueFalse.IsVisible = false;
+                }
+
                 QuestionTextLabel.Text = current.Text;
                 ScoreLabel.Text = $"Punti: {_score.ToString()}"; //Cast in stringa
                 QuestionImage.Source = current.ImgName;
@@ -51,6 +91,9 @@ namespace AppQuiz
             {
                 QuestionTextLabel.Text = $"Punteggio finale: {_score}";
                 btnResult.IsVisible = true;
+                entOpenQuestion.IsVisible = false;
+                btnConferma.IsVisible = false;
+                htsTrueFalse.IsVisible = false;
                 ScoreLabel.IsVisible = false;
                 TrueButton.IsVisible = false;
                 FalseButton.IsVisible = false;
@@ -69,5 +112,9 @@ namespace AppQuiz
             await Navigation.PushAsync(new ResultPage(_score));
         }
 
+        private async void btnReplay_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
     }
 }

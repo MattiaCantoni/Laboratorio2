@@ -37,9 +37,10 @@
                 HeightRequest="50"/>
 
             <HorizontalStackLayout
+                x:Name="htsTrueFalse"
                 Spacing="10"
                 HorizontalOptions="Center">
-                
+
                 <!-- CommandParameter: mette un parametro nel bottone -->
                 <Button
                     x:Name="TrueButton"
@@ -65,14 +66,31 @@
 
             </HorizontalStackLayout>
 
-            <Button 
+            <Entry
+                x:Name="entOpenQuestion"/>
+            
+            <Button
+                x:Name="btnConferma"
+                Style="{StaticResource btnConferma}"
+                Clicked="OnAnswer_Clicked"
+                />
+            <HorizontalStackLayout Spacing="20">
+                <Button
+                x:Name="btnReplay"
+                Clicked="btnReplay_Clicked"
+                Style="{StaticResource btnReplay}"/>
+
+                <Button 
                 x:Name="btnResult" 
-                WidthRequest="70" 
-                HeightRequest="70"
+                WidthRequest="125"
+                HeightRequest="50"
                 Text="Vai a risultati"
                 Clicked="btnResult_Clicked"/>
 
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
+
     </ScrollView>
 
 </ContentPage>
