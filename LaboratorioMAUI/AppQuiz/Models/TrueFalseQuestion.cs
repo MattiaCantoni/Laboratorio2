@@ -31,10 +31,10 @@ namespace AppQuiz.Models
 			CorrectAnswer = correctAnswer;
 		}
 
-
         public override bool CheckAnswer(string userAnswer)
         {
-            return userAnswer.Equals(CorrectAnswer);
+			string corr = CorrectAnswer.ToString();
+            return userAnswer.Equals(corr);
         }
     }
 }

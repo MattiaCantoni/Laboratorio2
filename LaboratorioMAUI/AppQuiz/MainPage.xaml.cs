@@ -32,27 +32,12 @@ namespace AppQuiz
                 {
                     string userAnswer = btn.CommandParameter.ToString();
 
-                    if (_questions[_currentIndex].CheckAnswer(userAnswer))
-                    {
-                        _score += _questions[_currentIndex].Points;
-                    }
-                    else
-                    {
-                        _score += 0;
-                    }
+                    addPoints(_currentIndex, userAnswer);
                 }
                 else if (btnConferma == btn)
                 {
                     string userAnswer = entOpenQuestion.Text;
-
-                    if (_questions[_currentIndex].CheckAnswer(userAnswer))
-                    {
-                        _score += _questions[_currentIndex].Points;
-                    }
-                    else
-                    {
-                        _score += 0;
-                    }
+                    addPoints(_currentIndex, userAnswer);
                 }
             } else
             {
@@ -60,6 +45,20 @@ namespace AppQuiz
             }
             _currentIndex++;
             ShowQuestion();
+        }
+
+        private void addPoints(int index, string userAnswer)
+        {
+            if (_questions[index].CheckAnswer(userAnswer))
+            {
+                _score += _questions[index].Points;
+                DisplayAlert("Esatto", "", "OK");
+            }
+            else
+            {
+                _score += 0;
+                DisplayAlert("Errato", "0 punti", "OK");
+            }
         }
 
         private void ShowQuestion()

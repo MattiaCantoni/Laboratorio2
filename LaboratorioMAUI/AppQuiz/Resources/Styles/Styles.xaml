@@ -4,10 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-
     <Style x:Key="btnReplay" TargetType="Button">
-        <Setter Property="Text" Value="Rigioca"/>
-        <Setter Property="WidthRequest" Value="75"/>
+        <Setter Property="Text" Value="Ricomincia"/>
+        <Setter Property="WidthRequest" Value="105"/>
     </Style>
 
     <Style x:Key="btnConferma" TargetType="Button">
