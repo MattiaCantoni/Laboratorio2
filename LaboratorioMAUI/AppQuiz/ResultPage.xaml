@@ -54,6 +54,15 @@
             TextColor="Gold"
             HorizontalTextAlignment="Center"/>
 
+        <HorizontalStackLayout Spacing="20"
+                               HorizontalOptions="Center">
+
+            <Entry Style="{StaticResource entUserName}"/>
+
+            <Button Style="{StaticResource btnUserName}"/>
+
+        </HorizontalStackLayout>
+
         <Button 
             x:Name="btnGiocaAncora"
             Text="Gioca Ancora"
@@ -61,6 +70,7 @@
             BackgroundColor="{StaticResource Primary}"
             CornerRadius="20"/>
 
+        
 
     </VerticalStackLayout>
 </ContentPage>

@@ -33,7 +33,7 @@ namespace AppQuiz.Models
 
         public override bool CheckAnswer(string userAnswer)
         {
-			string corr = CorrectAnswer.ToString();
+			string corr = CorrectAnswer.ToString().ToLower();
             return userAnswer.Equals(corr);
         }
     }

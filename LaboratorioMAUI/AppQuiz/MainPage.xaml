@@ -74,7 +74,7 @@
                 Style="{StaticResource btnConferma}"
                 Clicked="OnAnswer_Clicked"
                 />
-            <HorizontalStackLayout Spacing="20">
+            
                 <Button
                 x:Name="btnReplay"
                 Clicked="btnReplay_Clicked"
@@ -87,8 +87,7 @@
                 Text="Vai a risultati"
                 Clicked="btnResult_Clicked"/>
 
-            </HorizontalStackLayout>
-
+            
         </VerticalStackLayout>
 
     </ScrollView>

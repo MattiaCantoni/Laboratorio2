@@ -1,4 +1,5 @@
 ﻿using AppQuiz.Models;
+using Microsoft.Maui.Graphics.Text;
 
 namespace AppQuiz
 {
@@ -16,6 +17,7 @@ namespace AppQuiz
             _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato", 15, "python.png", false));
             _questions.Add(new OpenQuestion("Qual è il nome del framework Microsoft per app cross-platform?", 15, "logo.png", "MAUI"));
             btnResult.IsVisible = false;
+            btnReplay.IsVisible = false;
             ShowQuestion();
         }
 
@@ -49,10 +51,11 @@ namespace AppQuiz
 
         private void addPoints(int index, string userAnswer)
         {
+
             if (_questions[index].CheckAnswer(userAnswer))
             {
                 _score += _questions[index].Points;
-                DisplayAlert("Esatto", "", "OK");
+                DisplayAlert("Esatto", _questions[index].Points + " punti", "OK");
             }
             else
             {

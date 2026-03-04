@@ -32,7 +32,12 @@ namespace AppQuiz.Models
 
         public override bool CheckAnswer(string userAnswer)
         {
-            return userAnswer.ToLower().Trim().Equals(CorrectAnswer);
+            if (userAnswer == null || String.IsNullOrEmpty(userAnswer))
+            {
+                return false;
+            }
+            string corr = CorrectAnswer.ToString();
+            return userAnswer.Equals(corr);
         }
     }
 }
