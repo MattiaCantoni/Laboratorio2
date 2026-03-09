@@ -57,9 +57,16 @@
         <HorizontalStackLayout Spacing="20"
                                HorizontalOptions="Center">
 
-            <Entry Style="{StaticResource entUserName}"/>
+            <Entry 
+                x:Name="entSaveName"
+                Style="{StaticResource entUserName}"
+                
+                />
 
-            <Button Style="{StaticResource btnUserName}"/>
+            <Button 
+                x:Name="btnSaveName"
+                Style="{StaticResource btnUserName}"
+                Clicked="btnSaveName_Clicked"/>
 
         </HorizontalStackLayout>
 

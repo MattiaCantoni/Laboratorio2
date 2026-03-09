@@ -23,7 +23,7 @@ namespace AppQuiz.Models
         }
 
         //Instanziare un costruttore con una sottoclasse
-        public OpenQuestion(string text, int points, string imgName, String correctAnswer)
+        public OpenQuestion(string text, int points, String correctAnswer, string imgName)
             : base(text, points, imgName)
         {
             CorrectAnswer = correctAnswer;
@@ -36,7 +36,7 @@ namespace AppQuiz.Models
             {
                 return false;
             }
-            string corr = CorrectAnswer.ToString();
+            string corr = CorrectAnswer.ToString().ToLower().Trim();
             return userAnswer.Equals(corr);
         }
     }

@@ -14,7 +14,7 @@
         <Setter Property="Background" Value="{StaticResource Primary}"/>
     </Style>
     
-    #### USERNAME
+
     <Style x:Key="entUserName" TargetType="Entry">
         <Setter Property="Placeholder" Value="Inserire nome utente"/>
         <Setter Property="WidthRequest" Value="250"/>

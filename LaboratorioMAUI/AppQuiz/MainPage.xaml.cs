@@ -1,4 +1,5 @@
-﻿using AppQuiz.Models;
+﻿
+using AppQuiz.Models;
 using Microsoft.Maui.Graphics.Text;
 
 namespace AppQuiz
@@ -10,12 +11,17 @@ namespace AppQuiz
         private int _currentIndex = 0;
         private int _score = 0;
 
+        private static readonly string _filePath = Path.Combine(
+    FileSystem.AppDataDirectory, "questions.txt");
+
         public MainPage()
         {
             InitializeComponent();
-            _questions.Add(new TrueFalseQuestion("Il C# è un linguaggio a oggetti?", 10, "csharplogo.png", true));
-            _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato", 15, "python.png", false));
-            _questions.Add(new OpenQuestion("Qual è il nome del framework Microsoft per app cross-platform?", 15, "logo.png", "MAUI"));
+            LoadQuestions();
+            /*_questions.Add(new TrueFalseQuestion("Il C# è un linguaggio a oggetti?", 10, true, "csharplogo.png"));
+            _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato", 15, false, "python.png"));
+            _questions.Add(new OpenQuestion("Qual è il nome del framework Microsoft per app cross-platform?", 15, "MAUI", "logo.png"));
+            */
             btnResult.IsVisible = false;
             btnReplay.IsVisible = false;
             ShowQuestion();
@@ -41,9 +47,12 @@ namespace AppQuiz
                     string userAnswer = entOpenQuestion.Text;
                     addPoints(_currentIndex, userAnswer);
                 }
-            } else
+                entOpenQuestion.Text = null;
+            } 
+            else
             {
                 OnQuizFinished();
+                entOpenQuestion.Text = null;
             }
             _currentIndex++;
             ShowQuestion();
@@ -118,5 +127,53 @@ namespace AppQuiz
         {
             await Navigation.PushAsync(new MainPage());
         }
+
+
+        public void LoadQuestions()
+        {
+            if (!File.Exists(_filePath))
+            {
+                throw new Exception("Il file non esiste");
+            }
+
+            try
+            {
+                string[] content = File.ReadAllLines(_filePath);
+
+                foreach (string a in content)
+                {
+                    string[] questionArray = a.Split(";");
+                    if (questionArray[0] == "TF")
+                    {
+                        string question = questionArray[1];
+                        int addScore;
+                        int.TryParse(questionArray[2], out addScore);
+                        bool response;
+                        bool.TryParse(questionArray[3], out response);
+                        string image = questionArray[4];
+                        _questions.Add(new TrueFalseQuestion(question, addScore, response, image));
+                    }
+                    else if (questionArray[0] == "OPEN")
+                    {
+                        string question = questionArray[1];
+                        int addScore;
+                        int.TryParse(questionArray[2], out addScore);
+                        string response = questionArray[3];
+                        string image = questionArray[4];
+                        _questions.Add(new OpenQuestion(question, addScore, response, image));
+                    }
+                    else
+                    {
+                        DisplayAlert("Errore", "Tipo di domanda non specificato", "OK");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Errore", "Impossibile leggere il punteggio: " + ex.Message, "OK");
+            }
+        }
+
+
     }
 }

@@ -25,7 +25,7 @@ namespace AppQuiz.Models
 		}
 
 		//Instanziare un costruttore con una sottoclasse
-		public TrueFalseQuestion(string text, int points, string imgName,bool correctAnswer)
+		public TrueFalseQuestion(string text, int points, bool correctAnswer, string imgName)
 			: base (text, points, imgName)
 		{
 			CorrectAnswer = correctAnswer;
