@@ -18,6 +18,7 @@
                 TextColor="{StaticResource Primary}"/>
 
             <Label
+                x:Name="lblDomanda"
                 Text="DOMANDA"
                 FontSize="12"
                 TextColor="Gray"
@@ -75,19 +76,71 @@
                 Clicked="OnAnswer_Clicked"
                 />
             
-                <Button
+            <Button
                 x:Name="btnReplay"
                 Clicked="btnReplay_Clicked"
                 Style="{StaticResource btnReplay}"/>
 
-                <Button 
+            <Button 
                 x:Name="btnResult" 
                 WidthRequest="125"
                 HeightRequest="50"
                 Text="Vai a risultati"
                 Clicked="btnResult_Clicked"/>
 
+            <Label
+                x:Name="lblQuestionsSetup"
+                Text="Quante domande vuoi?"
+                HorizontalOptions="Center"
+                FontSize="24"/>
             
+            
+            
+            <Entry
+                x:Name="entQuestionsSetups"/>
+
+            <Button
+                x:Name="btnAddQuestion"
+                Clicked="btnAddQuestion_Clicked"
+                Text="Aggiungi domande"/>
+
+
+            <Button
+                x:Name="btnQuestionsSetup"
+                Clicked="btnQuestionSetup_Clicked"
+                Text="Salva Impostazioni domande"/>
+
+
+
+            <VerticalStackLayout
+                x:Name="vslAccesso"
+                Spacing="15">
+                
+                <Label
+                    x:Name="lblAccesso"
+                    Text="Immettere password di accesso"
+                    FontSize="24"
+                    HorizontalOptions="Center"/>
+
+                <Entry
+                    x:Name="entAccesso"
+                    Placeholder="password"/>
+                
+                <Button
+                    x:Name="btnAccesso"
+                    Text="Accedi"
+                    Clicked="btnAccesso_Clicked"/>
+                
+           </VerticalStackLayout>
+
+            <VerticalStackLayout
+                x:Name="vslAddQuestion">
+                
+                
+                
+            </VerticalStackLayout>
+
+
         </VerticalStackLayout>
 
     </ScrollView>

@@ -1,6 +1,4 @@
-﻿
-
-namespace AppQuiz;
+﻿namespace AppQuiz;
 
 public partial class ResultPage : ContentPage
 {
@@ -19,9 +17,19 @@ public partial class ResultPage : ContentPage
 
 	private void ShowGUI(int score)
 	{
-		lblScore.Text = score.ToString();
-		lblMigliorPunteggio.Text = "🏆 Miglior Punteggio: " + LoadBestScore().ToString();
+        if (!File.Exists(_filePath))
+        {
+            lblScore.Text = score.ToString();
+            lblMigliorPunteggio.Text = "Ancora nessun punteggio salvato";
+            
+        }
+		else
+		{
+            string content = File.ReadAllText(_filePath);
+            string[] arr = content.Split(";");
 
+            lblMigliorPunteggio.Text = "🏆 Miglior Punteggio: " + score.ToString() + "\n" + arr[0].ToString() + " " + arr[2].ToString();
+        }
     }
 
     private async void btnGiocaAncora_Clicked(object sender, EventArgs e)
@@ -40,9 +48,13 @@ public partial class ResultPage : ContentPage
 		{
 			try
 			{
+                string content = File.ReadAllText(_filePath);
+
+                string[] arr = content.Split(";");
+
                 string nomeUtente = entSaveName.Text;
                 File.WriteAllText(_filePath, nomeUtente + ";" + score.ToString() + ";" + DateTime.Now.ToString("yyyy-MM-dd"));
-				lblMigliorPunteggio.Text = "🏆 Miglior Punteggio: " + score.ToString();
+				lblMigliorPunteggio.Text = "🏆 Miglior Punteggio: " + score.ToString() + "\n" + arr[0].ToString() + " " + arr[2].ToString();
             }
 			catch (Exception ex)
 			{

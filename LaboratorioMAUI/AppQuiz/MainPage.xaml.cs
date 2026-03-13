@@ -1,7 +1,8 @@
 ﻿
+using Android.Views;
 using AppQuiz.Models;
 using Microsoft.Maui.Graphics.Text;
-
+using System;
 namespace AppQuiz
 {
     public partial class MainPage : ContentPage
@@ -17,14 +18,19 @@ namespace AppQuiz
         public MainPage()
         {
             InitializeComponent();
-            LoadQuestions();
-            /*_questions.Add(new TrueFalseQuestion("Il C# è un linguaggio a oggetti?", 10, true, "csharplogo.png"));
-            _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato", 15, false, "python.png"));
-            _questions.Add(new OpenQuestion("Qual è il nome del framework Microsoft per app cross-platform?", 15, "MAUI", "logo.png"));
-            */
+
+            QuestionTextLabel.IsVisible = false;
+            ScoreLabel.IsVisible = false;
+            lblDomanda.IsVisible = false;
+
+            entOpenQuestion.IsVisible = false;
+            btnConferma.IsVisible = false;
+            TrueButton.IsVisible = false;
+            FalseButton.IsVisible = false;
+
             btnResult.IsVisible = false;
             btnReplay.IsVisible = false;
-            ShowQuestion();
+            
         }
 
         //L'evento porta con se il sender che è il bottone
@@ -81,16 +87,19 @@ namespace AppQuiz
                 //Creo un oggetto Question che contiene la domanda corrente
                 QuestionBase current = _questions[_currentIndex];
 
-                
 
                 if (current is TrueFalseQuestion)
                 {
                     htsTrueFalse.IsVisible = true;
+                    TrueButton.IsVisible = true;
+                    FalseButton.IsVisible = true;
                     entOpenQuestion.IsVisible = false;
                     btnConferma.IsVisible = false;
                 } else if (current is OpenQuestion){
                     entOpenQuestion.IsVisible = true;
                     btnConferma.IsVisible = true;
+                    TrueButton.IsVisible = false;
+                    FalseButton.IsVisible = false;
                     htsTrueFalse.IsVisible = false;
                 }
 
@@ -129,43 +138,49 @@ namespace AppQuiz
         }
 
 
-        public void LoadQuestions()
+        public void LoadQuestions(int numberOfQuestions)
         {
             if (!File.Exists(_filePath))
             {
                 throw new Exception("Il file non esiste");
             }
-
             try
             {
                 string[] content = File.ReadAllLines(_filePath);
-
-                foreach (string a in content)
+                var rng = new Random();
+                rng.Shuffle(content);
+                
+                for (int i = 0; i < content.Length; i++)
                 {
-                    string[] questionArray = a.Split(";");
-                    if (questionArray[0] == "TF")
+                    if (i < numberOfQuestions)
                     {
-                        string question = questionArray[1];
-                        int addScore;
-                        int.TryParse(questionArray[2], out addScore);
-                        bool response;
-                        bool.TryParse(questionArray[3], out response);
-                        string image = questionArray[4];
-                        _questions.Add(new TrueFalseQuestion(question, addScore, response, image));
-                    }
-                    else if (questionArray[0] == "OPEN")
-                    {
-                        string question = questionArray[1];
-                        int addScore;
-                        int.TryParse(questionArray[2], out addScore);
-                        string response = questionArray[3];
-                        string image = questionArray[4];
-                        _questions.Add(new OpenQuestion(question, addScore, response, image));
-                    }
-                    else
-                    {
-                        DisplayAlert("Errore", "Tipo di domanda non specificato", "OK");
-                    }
+                        
+                        string a = content[i];
+                        string[] questionArray = a.Split(";");
+                        if (questionArray[0] == "TF")
+                        {
+                            string question = questionArray[1];
+                            int addScore;
+                            int.TryParse(questionArray[2], out addScore);
+                            bool response;
+                            bool.TryParse(questionArray[3], out response);
+                            string image = questionArray[4];
+                            _questions.Add(new TrueFalseQuestion(question, addScore, response, image));
+                        }
+                        else if (questionArray[0] == "OPEN")
+                        {
+                            string question = questionArray[1];
+                            int addScore;
+                            int.TryParse(questionArray[2], out addScore);
+                            string response = questionArray[3];
+                            string image = questionArray[4];
+                            _questions.Add(new OpenQuestion(question, addScore, response, image));
+                        }
+                        else
+                        {
+                            DisplayAlert("Errore", "Tipo di domanda non specificato", "OK");
+                        }
+                    }              
                 }
             }
             catch (Exception ex)
@@ -174,6 +189,47 @@ namespace AppQuiz
             }
         }
 
+        private void btnQuestionSetup_Clicked(object sender, EventArgs e)
+        {
+            int numberOfQuestions;
+            int.TryParse(entQuestionsSetups.Text, out numberOfQuestions);
+            LoadQuestions(numberOfQuestions);
 
+            lblQuestionsSetup.IsVisible = false;
+            entQuestionsSetups.IsVisible = false;
+            btnQuestionsSetup.IsVisible = false;
+            btnAddQuestion.IsVisible = false;
+            QuestionTextLabel.IsVisible = true;
+            ScoreLabel.IsVisible = true;
+            lblDomanda.IsVisible = true;
+            
+            ShowQuestion();
+        }
+
+        private void btnAddQuestion_Clicked(object sender, EventArgs e)
+        {
+            lblQuestionsSetup.IsVisible = false;
+            entQuestionsSetups.IsVisible = false;
+            btnQuestionsSetup.IsVisible = false;
+            btnAddQuestion.IsVisible = false;
+            vslAccesso.IsVisible = true;
+        }
+
+        private void btnAccesso_Clicked(object sender, EventArgs e)
+        {
+            if (entAccesso.Text.Equals("1234"))
+            {
+                vslAccesso.IsVisible = false;
+                vslAddQuestion.IsVisible = true;
+            }
+            else
+            {
+                vslAccesso.IsVisible = false;
+                lblQuestionsSetup.IsVisible = true;
+                entQuestionsSetups.IsVisible = true;
+                btnQuestionsSetup.IsVisible = true;
+                btnAddQuestion.IsVisible = true;
+            }
+        }
     }
 }
