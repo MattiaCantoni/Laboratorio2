@@ -1,6 +1,4 @@
-﻿
-using Android.Views;
-using AppQuiz.Models;
+﻿using AppQuiz.Models;
 using Microsoft.Maui.Graphics.Text;
 using System;
 namespace AppQuiz
