@@ -50,8 +50,9 @@
                 HeightRequest="300"
                 IsReadOnly="True"
                 BackgroundColor="GhostWhite"/>
+            
 
-
+            
 
         </VerticalStackLayout>
     </ScrollView>

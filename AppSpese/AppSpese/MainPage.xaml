@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSpese.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="LE MIE SPESE"
+                FontSize="24"
+                TextColor="{StaticResource Primary}"
+                HorizontalOptions="Center"/>
+
+
+            <Entry
+                x:Name="EntNomeLista"
+                Placeholder="Nome lista"/>
+
+            <Entry
+                x:Name="EntDescrizione"
+                Placeholder="Descrizione"/>
+
+            <Entry 
+                x:Name="EntImporto"
+                Placeholder="Importo"/>
+
+            <Button
+                x:Name="BtnSalvaSpese"
+                Text="SALVA SPESE"
+                BackgroundColor="Green"
+                Clicked="BtnSalvaSpese_Clicked"
+                CornerRadius="20"/>
+
+            <Button
+                x:Name="BtnVediSpese"
+                Text="VEDI SPESE"
+                Clicked="BtnVediSpese_Clicked"
+                CornerRadius="20"/>
+
+            <Frame
+                HeightRequest="1"/>
+
+            <Label
+                Text="Liste salvate:"
+                FontSize="16"
+                FontAttributes="Italic"/>
+            
+            <Editor
+                x:Name="EdiListe"
+                HeightRequest="200"
+                BackgroundColor="WhiteSmoke"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

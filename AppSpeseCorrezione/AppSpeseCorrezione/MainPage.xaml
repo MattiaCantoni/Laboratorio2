@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSpeseCorrezione.MainPage"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="15"
+            Padding="20">
+            
+            <Label Text="LE MIE SPESE"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#1A3A6B"/>
+           
+            <Entry x:Name="EntNomeLista"
+                   AutomationId="EntNomeLista"
+                   Placeholder="Nome Lista (es.marzo)"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   PlaceholderColor="Grey"/>
+
+            <Entry x:Name="EntDescrizione"
+                   AutomationId="EntDescrizione"
+                   Placeholder="Descrizione"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"/>
+
+            <Entry x:Name="EntImporto"
+                   AutomationId="EntImporto"
+                   Placeholder="Importo"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"/>
+
+            <Button
+                x:Name="BtnSalvaSpese"
+                Text="SALVA SPESE"
+                BackgroundColor="Green"/>     
+
+            <Button
+                x:Name="BtnVediSpese"
+                Text="VEDI SPESE"/>
+
+            <Frame
+                HeightRequest="1"/>
+
+            <Label
+                Text="Liste salvate:"
+                FontSize="16"
+                FontAttributes="Italic"/>
+
+            <Editor
+                x:Name="EdiListe"
+                HeightRequest="200"
+                BackgroundColor="WhiteSmoke"/>          
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
+
+    
+
+
+

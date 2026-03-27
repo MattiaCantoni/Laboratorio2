@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSpese.DettaglioPage"
+             Title="DettaglioPage">
+    <VerticalStackLayout
+        Spacing="15"
+        Padding="20">
+
+        <Label
+            Text="DETTAGLIO SPESE"
+            FontSize="24"
+            TextColor="{DynamicResource Primary}"
+            HorizontalTextAlignment="Center"
+            HorizontalOptions="Center"/>
+
+        <Label
+            x:Name="lblFileName"
+            Text=""
+            FontSize="16"
+            HorizontalTextAlignment="Center"/>
+
+        <Editor
+            x:Name="EdiSpese"
+            MinimumHeightRequest="500"
+            Margin="20"/>
+
+        <Button
+            x:Name="btnTorna"
+            Text="TORNA INDIETRO"
+            TextColor="White"
+            BackgroundColor="{DynamicResource Gray600}"
+            Clicked="btnTorna_Clicked"
+            CornerRadius="20"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -18,10 +18,6 @@ namespace AppDiario.Models
 			}
 			set 
 			{
-				if (String.IsNullOrEmpty(value))
-				{
-					value = "Sconosciuto";
-				}
 				_titolo = value;
 			}
 		}
