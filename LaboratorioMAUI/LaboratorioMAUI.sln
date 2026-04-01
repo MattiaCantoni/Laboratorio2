@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDiario", "AppDiario\AppD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPreparazioneTest1", "HelloPreparazioneTest1\HelloPreparazioneTest1.csproj", "{8D9B0DB4-0F34-4EF5-88C2-524B22F3B20A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloList", "HelloList\HelloList.csproj", "{13750198-46CC-4485-8A64-8B9C48BF1663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,12 @@ Global
 		{8D9B0DB4-0F34-4EF5-88C2-524B22F3B20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D9B0DB4-0F34-4EF5-88C2-524B22F3B20A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D9B0DB4-0F34-4EF5-88C2-524B22F3B20A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{13750198-46CC-4485-8A64-8B9C48BF1663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13750198-46CC-4485-8A64-8B9C48BF1663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13750198-46CC-4485-8A64-8B9C48BF1663}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{13750198-46CC-4485-8A64-8B9C48BF1663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13750198-46CC-4485-8A64-8B9C48BF1663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13750198-46CC-4485-8A64-8B9C48BF1663}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +107,7 @@ Global
 		{A4B4AEDE-3C25-45D2-B22C-7E023067AB96} = {9DF17F9D-15DD-47FD-BD2B-D0B0DECB671E}
 		{C2A642E8-679B-4C32-99D8-85DA881AD787} = {586141F6-6C26-4BC7-BC67-EFC0D520CA21}
 		{8D9B0DB4-0F34-4EF5-88C2-524B22F3B20A} = {586141F6-6C26-4BC7-BC67-EFC0D520CA21}
+		{13750198-46CC-4485-8A64-8B9C48BF1663} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F442C1D-BFEC-43B3-BD0D-89D873FEDF05}

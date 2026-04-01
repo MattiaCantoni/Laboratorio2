@@ -38,6 +38,7 @@
 
             <Button
                 x:Name="BtnSalvaSpese"
+                AutomationId="BtnSalvaSpese"
                 Text="SALVA SPESE"
                 BackgroundColor="Green"/>     
 

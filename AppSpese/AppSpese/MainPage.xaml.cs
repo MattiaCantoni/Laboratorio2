@@ -6,8 +6,7 @@ namespace AppSpese
     public partial class MainPage : ContentPage
     {
 
-        private static string _listaFile = Path.Combine(FileSystem.AppDataDirectory, 
-            "lista.txt");
+        private static string _listaFile = Path.Combine(FileSystem.AppDataDirectory, "lista.txt");
 
 
         public MainPage()

@@ -81,7 +81,11 @@ namespace AppSpeseCorrezioneTest
         [Test]
         public void Test_BottoneSalvaSpesa()
         {
-            Assert.Pass();
+            System.Threading.Thread.Sleep(3000);
+            var buttonSalvaSpesa = _driver.FindElement(MobileBy.AccessibilityId("BtnSalvaSpese"));
+            buttonSalvaSpesa.Click();
+
+            System.Threading.Thread.Sleep(5000);
         }
 
         [TearDown]
