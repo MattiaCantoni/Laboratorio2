@@ -8,7 +8,8 @@
             Padding="30,0"
             Spacing="25">
 
-            <Picker x:Name="PickFrutti"/>
+            <Picker x:Name="PickFrutti"
+                    ItemDisplayBinding="{Binding Nome}"/>
 
         </VerticalStackLayout>
     </ScrollView>

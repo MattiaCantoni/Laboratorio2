@@ -1,8 +1,11 @@
-﻿namespace HelloList
+﻿using HelloList.Models;
+
+namespace HelloList
 {
     public partial class MainPage : ContentPage
     {
-        List<string> frutti;
+        //Lista di Frutto
+        List<Frutto> frutti;
 
 
         public MainPage()
@@ -13,10 +16,14 @@
 
         private void ShowGUI()
         {
-            frutti = new List<string>();
-            frutti.Add("Mela");
-            frutti.Add("Pera");
-            frutti.Add("Ananas");
+            frutti = new List<Frutto>();
+            frutti.Add(new Frutto("Mela", "Italia"));
+            frutti.Add(new Frutto("Kiwi", "Groenlandia"));
+            frutti.Add(new Frutto("Ananas", "Svizzera"));
+            //frutti.Remove("Mela"); //Rimuoviamo la mela
+            //frutti.Insert(1, "Banana"); //Si colloca all'indice 1
+            //frutti.RemoveAt(1);
+            //Popolato l'Item Source del Picker
             PickFrutti.ItemsSource = frutti;
         }
 

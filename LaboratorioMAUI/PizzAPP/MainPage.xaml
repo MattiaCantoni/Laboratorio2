@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PizzAPP.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Border
+                StrokeShape="RoundRectangle">
+            <Label Text="Menu Pizze"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            </Border>
+            <Label Text="Seleziona il tipo di pizza"
+                   FontSize="24"/>
+
+            <Picker x:Name="PickPizze"/> 
+
+            <Frame x:Name="FrameCatalogo"
+                   HeightRequest="500"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
