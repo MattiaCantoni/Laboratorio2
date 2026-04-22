@@ -17,12 +17,33 @@
             <Label Text="Seleziona il tipo di pizza"
                    FontSize="24"/>
 
-            <Picker x:Name="PickPizze"/> 
+            <Picker x:Name="PickPizze"
+                    ItemDisplayBinding="{Binding Nome}"
+                    SelectedIndexChanged="PickPizze_SelectedIndexChanged"/> 
+            
+            <!-- Pizze -->
+            <Border
+                StrokeShape="RoundRectangle">
+                
+                <HorizontalStackLayout
+                    HeightRequest="350">
 
-            <Frame x:Name="FrameCatalogo"
-                   HeightRequest="500"/>
+                    <Image x:Name="imgPizza"
+                           HeightRequest="300"/>
 
+                    <VerticalStackLayout>
+                        <Label x:Name="lblNome"
+                       FontSize="12"/>
+                        <Label x:Name="lblPrezzo"/>
+                        <Label x:Name="lblIngredienti"/>
+                        
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                
+            </Border>
+            
         </VerticalStackLayout>
+        
     </ScrollView>
 
 </ContentPage>

@@ -27,6 +27,13 @@ namespace HelloList
             PickFrutti.ItemsSource = frutti;
         }
 
+        private void PickFrutti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Frutto selectFruit = (Frutto) PickFrutti.SelectedItem;
+
+            EntFrutti.Text = selectFruit.Provenienza;
+
+        }
     }
 
 }

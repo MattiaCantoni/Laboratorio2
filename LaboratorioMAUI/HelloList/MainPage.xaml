@@ -9,7 +9,10 @@
             Spacing="25">
 
             <Picker x:Name="PickFrutti"
-                    ItemDisplayBinding="{Binding Nome}"/>
+                    ItemDisplayBinding="{Binding Nome}"
+                    SelectedIndexChanged="PickFrutti_SelectedIndexChanged"/>
+
+            <Entry x:Name="EntFrutti"/>
 
         </VerticalStackLayout>
     </ScrollView>

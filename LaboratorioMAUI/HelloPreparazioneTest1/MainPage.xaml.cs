@@ -2,24 +2,40 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        bool isPointerInside = false;
+
+        void OnMenuEnter(object sender, PointerEventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            isPointerInside = true;
+            Dropdown.IsVisible = true;
         }
+
+        void OnMenuExit(object sender, PointerEventArgs e)
+        {
+            isPointerInside = false;
+            Dropdown.IsVisible = false;
+        }
+
+        void OnDropdownEnter(object sender, PointerEventArgs e)
+        {
+            isPointerInside = false;
+            Dropdown.IsVisible = false;
+        }
+
+        void OnDropdownExit(object sender, PointerEventArgs e)
+        {
+            isPointerInside = false;
+            Dropdown.IsVisible = false;
+        }
+
+
     }
 
 }

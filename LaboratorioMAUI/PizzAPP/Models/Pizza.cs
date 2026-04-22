@@ -34,12 +34,20 @@ namespace PizzAPP.Models
 
 		private string _ingredienti;
 
-		public string Ingredienti
+        public string Ingredienti
 		{
 			get { return _ingredienti; }
 			set { _ingredienti = value; }
 		}
 
-		
-	}
+        public Pizza(string nome, float prezzo, string image, string ingredienti)
+        {
+			Nome = nome;
+			Prezzo = prezzo;
+			Image = image;
+			Ingredienti = ingredienti;
+        }
+
+
+    }
 }
