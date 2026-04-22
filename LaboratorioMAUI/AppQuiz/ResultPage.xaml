@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppQuiz.ResultPage"
-             Title="ResultPage">
+             Title="ResultPagedashofipa">
 
 
     <VerticalStackLayout
@@ -21,8 +21,7 @@
         <Frame 
             BackgroundColor="#eee"
             BorderColor="Black"
-            HorizontalOptions="FillAndExpand"
-            >
+            HorizontalOptions="FillAndExpand">
             
             <VerticalStackLayout
                 Spacing="10"
