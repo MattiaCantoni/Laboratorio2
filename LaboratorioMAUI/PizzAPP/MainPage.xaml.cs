@@ -61,10 +61,11 @@ namespace PizzAPP
                 DisplayAlert("Errore", "Errore" + ex.Message, "OK");
             }
         }
-         
-         
-         
 
+        private async void btnCollection_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Collection());
+        }
     }
 
 }

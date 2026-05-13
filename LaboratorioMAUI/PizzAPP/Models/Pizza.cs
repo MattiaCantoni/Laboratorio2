@@ -48,6 +48,8 @@ namespace PizzAPP.Models
 			Ingredienti = ingredienti;
         }
 
+		public string PrezzoFormattato => $"Fr {Prezzo:F2}";
+
 
     }
 }
